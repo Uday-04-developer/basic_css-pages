@@ -1,0 +1,269 @@
+/* <style> */
+/* --- 1. Basic Body and Container Styling (Outer dark area and the white form card) --- */
+body {
+    font-family: Arial, sans-serif; /* A common, readable font */
+    margin: 0;
+    display: flex; /* Use flexbox to center the form on the page */
+    justify-content: center; /* Horizontally center the form */
+    align-items: center; /* Vertically center the form */
+    min-height: 900px; /* Make sure the body takes at least the full viewport height */
+    background-color: #1a1a2e; /* Dark background color (from the image) */
+    color: #333; /* Default text color for the form content */
+     /* Add perspective for 3D effects */
+}
+
+div { /* This div wraps your h1 and form, it's the white "card" */
+    background-color: #ffffff; /* White background for the form area */
+    padding: 40px; /* Space inside the white box */
+    border-radius: 8px; /* Rounded corners for the white box */
+    box-shadow: 0px 00px 0px rgba(255, 255, 255, 0.1); /* Subtle shadow for depth */
+    width: 100%; /* Take full width of its flex container */
+    max-width: 400px; /* Limit the maximum width of the form for better readability */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+h1 { /* The "Contact Us" title */
+    text-align: center; /* Center the title */
+    color: #333;
+    margin-bottom: 25px; /* Space below the title */
+    font-size: 1.8em;
+}
+
+/* --- 2. Styling Form Elements (Labels, Inputs, Textarea, Button) --- */
+
+/* Make labels appear above their inputs */
+label {
+    display: block; /* Make label take its own line */
+    margin-bottom: 8px; /* Space between label and input */
+    font-weight: bold; /* Make labels stand out */
+    color: #555;
+    font-size: 0.95em;
+}
+
+/* Style all input fields and the textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Make them fill the available width */
+    padding: 12px; /* Inner space inside the fields */
+    margin-bottom: 20px; /* Space below each field */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px; /* Slightly rounded corners for fields */
+    box-sizing: border-box; /* Crucial for width: 100% with padding */
+    font-size: 1em; /* Readable font size */
+    outline: none; /* Remove default blue outline on focus */
+}
+
+/* --- 3. Pseudo-classes (hover, focus, active) - Make it interactive! --- */
+
+/* Hint: Change how things look when you point at them (hover) */
+input[type="text"]:hover,
+input[type="email"]:hover,
+textarea:hover {
+    border-color: #628cbf; /* Darker border on hover */
+}
+
+/* Hint: click in them (focus) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    border-color: #4CAF50; /* Green border when focused/clicked */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Subtle green shadow */
+}
+
+/* --- 4. CSS Transitions - Make style changes smooth, not instant! --- */
+/* Add transition to input/textarea for smooth border and shadow changes */
+input[type="text"],
+input[type="email"],
+textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* --- 5. Button Styling --- */
+button[type="submit"] {
+    background-color: #007bff; /* Blue button background */
+    color: white; /* White text on button */
+    padding: 15px 25px; /* Padding inside the button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners for the button */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    font-size: 1.1em;
+    font-weight: bold;
+    width: 100%; /* Make button span full width */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth hover and transform */
+}
+
+/* Hint: button colors or input field borders */
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* --- 6. Transforms (2D) - Make your button slightly bigger or move a bit --- */
+/* Hint: Move, rotate, or scale things! */
+button[type="submit"]:active { /* When the button is actually being clicked down */
+    background-color: #004085; /* Even darker blue on active */
+    transform: translateY(2px); /* Move button down slightly for a 'pressed' effect */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow change */
+}
+
+/* A common alternative for hover transform: */
+button[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.01); /* Slightly increase size on hover */
+}
+
+/* --- 7. Transforms (3D - Challenge!) - Optional, but fun! --- */
+/* This is more advanced and harder to see without specific content/angles.
+   For a simple button, 2D transforms are usually enough.
+   If you wanted to try it, you'd add 'perspective' to the parent and 'transform-style: preserve-3d'
+   to the button, then use transform: rotateX(10deg) or rotateY(10deg)
+   Let's skip it for simplicity as the image doesn't show obvious 3D. */
+
+/* --- 8. CSS Animation (Challenge!) - Optional, but cool! --- */
+/* Hint: Make things move on their own! Use @keyframes */
+/* Let's make the button pulse lightly on the page load */
+/* This is a simple example; you'd trigger it more subtly or for specific elements. */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(181, 12, 12, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(217, 255, 0, 0);
+    }
+}
+
+/* Apply the animation to the button after a slight delay */
+button[type="submit"] {
+    animation: pulse 2s infinite 1s; /* Name, duration, repeat, delay */
+}
+
+/* To only pulse on hover (alternative to previous animation): */
+/*
+button[type="submit"]:hover {
+    animation: pulse 1s infinite;
+}
+*/
+
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        font-weight: 100;
+        padding: 0;
+        color: #333;
+      }
+
+      h1, h2, h3 {
+        text-align: center;
+        color: #2c3e50;
+      }
+
+      a {
+        text-decoration: none;
+        color: #3498db;
+        margin: 0 10px;
+        font-weight: bold;
+      }
+
+      a:hover {
+        color: #1abc9c;
+      }
+
+      nav {
+        background-color: #fff;
+        padding: 10px 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #home, #about, #contact {
+        max-width: 800px;
+        margin: auto;
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 5px;
+      }
+
+      img {
+        display: block;
+        margin: 20px auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      }
+
+      footer {
+        text-align: center;
+        padding: 15px;
+        background-color: #2c3e50;
+        color: #ecf0f1;
+      }
+
+      hr {
+        margin: 30px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+      }
+
+      p {
+        line-height: 1.6;
+      }
+
+      .blog-meta {
+        font-style: italic;
+        color: #777;
+        text-align: center;
+      }
+
+      .blog-title {
+        text-align: center;
+        margin-top: 40px;
+        color: #34495e;
+      }
+/* </style> */
+        #image1 {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            top: 50px;
+            left: 50px;
+        }
+        #image2 {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        #image3 {
+            max-width: 50%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        } 
