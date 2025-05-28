@@ -1,0 +1,290 @@
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(-45deg, #1a2a6c, #b21f1f, #fdbb2d, #1a2a6c);
+        background-size: 400% 400%;
+        animation: gradientAnimation 15s ease infinite;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+      
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+        opacity: 0;
+        animation: fadeInDown 1s ease forwards;
+      }
+      .parent {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .child1 {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        min-height: 420px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .child1.animate-entry {
+        animation: scaleSlideIn 0.6s ease forwards;
+      }
+      .child1.animate-entry:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .child1.animate-entry:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .child1.animate-entry:nth-child(3) {
+        animation-delay: 0.5s;
+      }
+      .child1:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+      }
+      .child1 img {
+        width: 100%;
+        height: 180px;
+        border-radius: 8px;
+        object-fit: cover;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease;
+      }
+      .child1:hover img {
+        transform: scale(1.05);
+      }
+      .child1 h2 {
+        font-size: 1.4rem;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+        color: #222;
+        text-align: center;
+      }
+      .child1 p {
+        flex-grow: 1;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-align: center;
+        margin-bottom: 15px;
+        color: #555;
+      }
+      .child1 h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #007BFF;
+        margin-bottom: 20px;
+      }
+      .child1 button {
+        background-color: #007BFF;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+        width: 120px;
+      }
+      .child1 button:hover {
+        background-color: #0056b3;
+      }
+      .child1 button#cart {
+        background-color: #28a745;
+      }
+      .child1 button#cart:hover {
+        background-color: #1e7e34;
+      }
+/* 1. Scroll-triggered animations (use JS IntersectionObserver or AOS to add .animated) */
+.fade-in, .slide-in-up, .slide-in-left, .slide-in-right {
+  opacity: 0;
+  animation-fill-mode: forwards;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  /* pause until triggered */
+  animation-play-state: paused;
+}
+.fade-in.animated {
+  animation-name: fadeIn;
+  animation-play-state: running;
+}
+.slide-in-up.animated {
+  animation-name: slideUp;
+  animation-play-state: running;
+}
+.slide-in-left.animated {
+  animation-name: slideLeft;
+  animation-play-state: running;
+}
+.slide-in-right.animated {
+  animation-name: slideRight;
+  animation-play-state: running;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Parallax effect container (background image) */
+.parallax {
+  background-image: url('parallax-bg.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+/* Example media query to disable parallax on small screens */
+@media (max-width: 768px) {
+  .parallax { background-attachment: scroll; }
+}
+
+/* 2. Hover effects */
+
+/* Neon/glow button */
+.button-neon {
+  background: #000;
+  color: #0ff;
+  border: 2px solid #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  box-shadow: 0 0 5px #0ff;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.button-neon:hover {
+  border-color: #0ff;
+  box-shadow: 0 0 20px #0ff;
+}
+
+/* Glow effect on text (example class for headers) */
+.glowing-text {
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+  animation: pulsate 2s infinite alternate;
+}
+@keyframes pulsate {
+  from {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 11px #fff,
+      0 0 19px #fff,
+      0 0 40px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 100px #0fa,
+      0 0 150px #0fa;
+  }
+  to {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #fff,
+      0 0 15px #0fa,
+      0 0 30px #0fa,
+      0 0 70px #0fa,
+      0 0 80px #0fa,
+      0 0 90px #0fa,
+      0 0 140px #0fa;
+  }
+}
+
+/* Tilt card on hover */
+.tilt-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.tilt-card:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Card lift on hover */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Neon outline on hover */
+.neon-outline {
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.neon-outline:hover {
+  border-color: #0af;
+  box-shadow: 0 0 10px #0af, 0 0 20px #0af;
+}
+
+/* 3. Performance & accessibility tweaks */
+/* Promote transform animations to GPU for smoother motion */
+*, *::before, *::after {
+  will-change: transform, opacity;
+}
+/* Respect user preference to reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* New animations for body gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Header fadeInDown animation */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Child1 scale and slide in animation */
+@keyframes scaleSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
